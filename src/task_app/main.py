@@ -2,11 +2,16 @@
 
 from fastapi import FastAPI
 
+from task_app.api.tasks import router as tasks_router
+
 app = FastAPI(
     title="TaskAPP",
     description="タスク管理アプリケーション",
     version="0.1.0",
 )
+
+# ルーターの登録
+app.include_router(tasks_router)
 
 
 @app.get("/")
